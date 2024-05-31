@@ -19,7 +19,7 @@ function getOrder($order){
         CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => [
             "accept: application/json",
-            "authorization: Basic c2tfNzI0YWNlYzkzNTJlNDczYjllMDc5NjNlMjcxMmEwYjE6"
+            "authorization: Basic " . $_GET['token']
         ],
     ]);
     $response = curl_exec($curl);
@@ -66,7 +66,7 @@ function getPay($nome, $dia, $turno, $tour, $quantidade, $valor){
         ]),
         CURLOPT_HTTPHEADER => [
             "accept: application/json",
-            "authorization: Basic c2tfNzI0YWNlYzkzNTJlNDczYjllMDc5NjNlMjcxMmEwYjE6",
+            "authorization: Basic " . $_GET['token'],
             "content-type: application/json"
         ],
     ]);
