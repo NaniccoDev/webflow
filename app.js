@@ -59,7 +59,8 @@ app.get('/pay', async (req, res) => {
                                 ],
                                 pix: {
                                     expires_in: (60 * 60 * 24 * 2)
-                                }
+                                },
+                                customer_editable => true
                             }
                         }
                     ]
