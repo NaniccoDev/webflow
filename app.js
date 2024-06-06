@@ -51,12 +51,23 @@ app.get('/pay', async (req, res) => {
                     payments: [
                         {
                             payment_method: 'checkout',
+                            amount: req.query.valor + '00',
                             checkout: {
                                 expires_in: (60 * 24 * 2),
                                 default_payment_method: 'credit_card',
                                 accepted_payment_methods: [
                                     'credit_card', 'pix'
                                 ],
+                                credit_card: {
+                                    capture: true,
+                                    statement_descriptor: 'Familia Eloy',
+                                    installments: [
+                                        {
+                                            number: 1,
+                                            total: req.query.valor + '00'
+                                        }
+                                    ]
+                                },
                                 pix: {
                                     expires_in: (60 * 60 * 24 * 2)
                                 },
